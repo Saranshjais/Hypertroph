@@ -46,24 +46,22 @@ export default function ContactCTA() {
 
         {/* Right Side: Button */}
         <div className="shrink-0 w-full md:w-auto mt-2 md:mt-0 relative z-10 flex justify-center md:block">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full md:w-auto"
-          >
-            <Link 
-              href="/apply"
-              className="relative overflow-hidden w-full md:w-auto inline-block bg-[#044c7b] hover:bg-[#033b60] transition-all text-white font-black text-sm px-9 py-3.5 rounded-lg shadow-[0_4px_10px_rgba(4,76,123,0.3)] hover:shadow-[0_8px_25px_rgba(4,76,123,0.5)] tracking-wider group/btn border border-[#044c7b]/50 text-center"
+          <Link href="/apply" className="inline-block w-full md:w-auto">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative overflow-hidden w-full md:w-auto inline-block bg-[#044c7b] hover:bg-[#033b60] transition-all text-white font-black text-sm px-9 py-3.5 rounded-lg shadow-[0_4px_10px_rgba(4,76,123,0.3)] hover:shadow-[0_8px_25px_rgba(4,76,123,0.5)] tracking-wider group/btn border border-[#044c7b]/50 cursor-pointer"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 CONTACT FORM
+                {/* Little arrow that slides in on hover */}
                 <span className="opacity-0 -translate-x-2 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all duration-300 hidden md:inline-block">→</span>
               </span>
               
               {/* Button internal shimmer */}
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover/btn:animate-[shimmer_1s_infinite] z-0 pointer-events-none"></div>
-            </Link>
-          </motion.div>
+            </motion.button>
+          </Link>
         </div>
 
       </motion.div>
