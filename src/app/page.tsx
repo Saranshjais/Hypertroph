@@ -96,26 +96,7 @@ export default function Home() {
       </section>
 
       {/* Proper Clean Section for Contact Banner */}
-      <section className="bg-white py-12 border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="bg-[#ffcc33] rounded-[2rem] p-8 md:p-10 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 border border-[#e6b800]">
-             <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 w-full">
-                <div className="w-16 h-16 shrink-0 bg-white/50 rounded-2xl flex items-center justify-center text-[#005580]">
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">Have queries about coaching?</h3>
-                  <p className="text-gray-800 font-medium text-lg">Fill this Contact Form, we reply under 24 hours.</p>
-                </div>
-             </div>
-             <button className="px-8 py-4 bg-[#005580] text-white font-bold uppercase tracking-widest text-sm rounded-xl hover:bg-[#003d5c] transition-colors whitespace-nowrap w-full md:w-auto shadow-md">
-               Contact Form
-             </button>
-          </div>
-        </div>
-      </section>
+      <ContactCTA />
 
       <Transformations />
 
@@ -123,9 +104,6 @@ export default function Home() {
       <Method />
       <Pricing />
       <FAQ />
-
-      <ContactCTA />
-
 
       <Footer />
     </main>
