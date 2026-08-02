@@ -29,3 +29,6 @@ body {
   0% { transform: translateX(-150%) skewX(-12deg); }
   100% { transform: translateX(200%) skewX(-12deg); }
 }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }  
+ 

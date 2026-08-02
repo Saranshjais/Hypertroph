@@ -16,11 +16,11 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { name: "Method", href: "/#method" },
     { name: "Transformations", href: "/transformations" },
-    { name: "Pricing", href: "/#pricing" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
-    { name: "Login", href: "/admin" } // Preparing for Phase 2 Admin Dashboard
+    { name: "Contact", href: "/contact" }
   ];
 
   return (
@@ -39,23 +39,20 @@ export default function Header() {
           
           <div className="flex items-center">
             {/* Premium Logo */}
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-3 cursor-pointer group"
-              onClick={() => {
-                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                 setActiveItem("Home");
-              }}
-            >
-              <div className="w-10 h-10 md:w-11 md:h-11 bg-gradient-to-br from-[#005580] to-[#003050] text-white font-black text-xl flex items-center justify-center rounded-xl shadow-[0_5px_15px_rgba(0,85,128,0.4)] relative overflow-hidden">
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                 <span className="relative z-10 drop-shadow-md">H</span>
-              </div>
-              <span className="font-black text-lg md:text-xl tracking-tight text-gray-900 group-hover:text-[#005580] transition-colors">
-                HYPERTROPH
-              </span>
-            </motion.div>
+            <Link href="/" onClick={() => setActiveItem("Home")}>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center space-x-3 cursor-pointer group"
+              >
+                <div className="w-10 h-10 md:w-11 md:h-11 relative flex-shrink-0 flex items-center justify-center">
+                   <img src="/logo.png" alt="Hypertroph Logo" className="w-full h-full object-contain drop-shadow-sm" />
+                </div>
+                <span className="font-black text-lg md:text-xl tracking-tight text-gray-900 group-hover:text-[#005580] transition-colors">
+                  HYPERTROPH
+                </span>
+              </motion.div>
+            </Link>
           </div>
           
           <div className="hidden lg:flex items-center space-x-2">
