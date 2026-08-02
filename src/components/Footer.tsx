@@ -61,13 +61,11 @@ export default function Footer() {
                 NAVIGATION
               </h4>
               <ul className="space-y-3 text-[12px] text-gray-500 font-medium">
-                <li><Link href="/" className="hover:text-[#1a73e8] transition-colors">Home</Link></li>
-                <li><Link href="/about" className="hover:text-[#1a73e8] transition-colors">About Us</Link></li>
                 <li><Link href="/transformations" className="hover:text-[#1a73e8] transition-colors">Transformations</Link></li>
-                <li><Link href="/#method" className="hover:text-[#1a73e8] transition-colors">The Method</Link></li>
-                <li><Link href="/programs" className="hover:text-[#1a73e8] transition-colors">Programs</Link></li>
+                <li><Link href="/pricing" className="hover:text-[#1a73e8] transition-colors">Pricing</Link></li>
                 <li><Link href="/blog" className="hover:text-[#1a73e8] transition-colors">Blog</Link></li>
-                <li><Link href="/contact" className="hover:text-[#1a73e8] transition-colors">Contact Us</Link></li>
+                <li><Link href="/about" className="hover:text-[#1a73e8] transition-colors">About</Link></li>
+                <li><Link href="/contact" className="hover:text-[#1a73e8] transition-colors">Contact</Link></li>
               </ul>
             </div>
 
