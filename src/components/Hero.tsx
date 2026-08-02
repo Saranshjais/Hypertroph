@@ -120,41 +120,44 @@ export default function Hero() {
       </div>
 
       {/* Features Section */}
-      <div className="bg-white relative z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.02)] border-t border-gray-100 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-2 xl:px-8">
-          <div className="grid grid-cols-4 divide-x divide-gray-100">
+      <div className="bg-white relative z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.02)] border-t border-gray-100 overflow-hidden py-8 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             
-            <div className="flex flex-col items-center text-center py-6 xl:py-20 px-1 xl:px-6 group">
-              <div className="w-10 h-10 xl:w-20 xl:h-20 rounded-full bg-[#f0f4ec] flex items-center justify-center text-[#5e7141] mb-2 xl:mb-6 shadow-sm transition-transform group-hover:scale-110 group-hover:bg-[#5e7141] group-hover:text-white duration-300">
-                <Leaf className="w-5 h-5 xl:w-10 xl:h-10" />
-              </div>
-              <h3 className="font-bold text-[#1e2a22] text-[10px] sm:text-xs xl:text-2xl leading-tight mb-1 xl:mb-3">Mindset Coaching</h3>
-              <p className="text-[8px] sm:text-[10px] xl:text-lg text-[#536357] leading-tight">Build a positive and resilient mindset.</p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center py-6 xl:py-20 px-1 xl:px-6 group">
-              <div className="w-10 h-10 xl:w-20 xl:h-20 rounded-full bg-[#f0f4ec] flex items-center justify-center text-[#5e7141] mb-2 xl:mb-6 shadow-sm transition-transform group-hover:scale-110 group-hover:bg-[#5e7141] group-hover:text-white duration-300">
-                <Dumbbell className="w-5 h-5 xl:w-10 xl:h-10" />
-              </div>
-              <h3 className="font-bold text-[#1e2a22] text-[10px] sm:text-xs xl:text-2xl leading-tight mb-1 xl:mb-3">Fitness Guidance</h3>
-              <p className="text-[8px] sm:text-[10px] xl:text-lg text-[#536357] leading-tight">Effective workouts for your lifestyle.</p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center py-6 xl:py-20 px-1 xl:px-6 group">
-              <div className="w-10 h-10 xl:w-20 xl:h-20 rounded-full bg-[#f0f4ec] flex items-center justify-center text-[#5e7141] mb-2 xl:mb-6 shadow-sm transition-transform group-hover:scale-110 group-hover:bg-[#5e7141] group-hover:text-white duration-300">
-                <ClipboardList className="w-5 h-5 xl:w-10 xl:h-10" />
-              </div>
-              <h3 className="font-bold text-[#1e2a22] text-[10px] sm:text-xs xl:text-2xl leading-tight mb-1 xl:mb-3">Nutrition Plans</h3>
-              <p className="text-[8px] sm:text-[10px] xl:text-lg text-[#536357] leading-tight">Eat well, feel well, live well.</p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center py-6 xl:py-20 px-1 xl:px-6 group">
-              <div className="w-10 h-10 xl:w-20 xl:h-20 rounded-full bg-[#f0f4ec] flex items-center justify-center text-[#5e7141] mb-2 xl:mb-6 shadow-sm transition-transform group-hover:scale-110 group-hover:bg-[#5e7141] group-hover:text-white duration-300">
-                <Scale className="w-5 h-5 xl:w-10 xl:h-10" />
-              </div>
-              <h3 className="font-bold text-[#1e2a22] text-[10px] sm:text-xs xl:text-2xl leading-tight mb-1 xl:mb-3">Lifestyle Balance</h3>
-              <p className="text-[8px] sm:text-[10px] xl:text-lg text-[#536357] leading-tight">Create harmony and long term habits.</p>
-            </div>
+            {[
+              { icon: Leaf, title: "Mindset Coaching", desc: "Build a positive and resilient mindset." },
+              { icon: Dumbbell, title: "Fitness Guidance", desc: "Effective workouts for your lifestyle." },
+              { icon: ClipboardList, title: "Nutrition Plans", desc: "Eat well, feel well, live well." },
+              { icon: Scale, title: "Lifestyle Balance", desc: "Create harmony and long term habits." }
+            ].map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="flex flex-col items-center text-center p-6 md:p-8 rounded-3xl bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(94,113,65,0.1)] transition-all duration-300 group cursor-pointer relative overflow-hidden"
+                >
+                  {/* Subtle Background Glow on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#f0f4ec]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#f0f4ec] flex items-center justify-center text-[#5e7141] mb-4 shadow-inner group-hover:bg-[#5e7141] group-hover:text-white transition-colors duration-500">
+                    <Icon className="w-6 h-6 md:w-8 md:h-8 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500" />
+                  </div>
+                  
+                  <h3 className="relative z-10 font-bold text-[#1e2a22] text-sm md:text-base leading-tight mb-2 group-hover:text-[#5e7141] transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="relative z-10 text-xs md:text-sm text-[#536357] leading-relaxed opacity-90">
+                    {feature.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
             
           </div>
         </div>

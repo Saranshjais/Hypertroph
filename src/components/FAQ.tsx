@@ -18,7 +18,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="w-full bg-[#f8fafc] text-gray-900 py-16 md:py-24 px-4 md:px-8 lg:px-12 font-sans selection:bg-[#1a73e8] selection:text-white">
+    <section id="faq" className="w-full bg-[#f8fafc] text-gray-900 py-16 md:py-24 px-4 md:px-8 lg:px-12 font-sans selection:bg-[#1a73e8] selection:text-white overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col relative">
         
         {/* Header Section */}
@@ -48,53 +48,109 @@ export default function FAQ() {
           </div>
         </div>
 
-        {/* 2-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div 
-                key={index} 
-                className={`bg-white rounded-2xl border transition-all duration-300 hover:shadow-md hover:-translate-y-1 ${isOpen ? 'border-[#1a73e8]/30 shadow-md ring-4 ring-[#1a73e8]/5' : 'border-gray-100 shadow-sm hover:border-gray-300'}`}
-              >
-                <button 
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full p-5 md:p-6 flex items-start md:items-center justify-between text-left focus:outline-none"
+        {/* 2-Column Layout */}
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 relative z-20">
+          
+          {/* Left Column */}
+          <div className="flex-1 flex flex-col gap-4 md:gap-6">
+            {faqs.filter((_, i) => i % 2 === 0).map((faq, idx) => {
+              const index = idx * 2;
+              const isOpen = openIndex === index;
+              return (
+                <div 
+                  key={index} 
+                  className={`bg-white rounded-2xl border transition-all duration-300 hover:shadow-md hover:-translate-y-1 ${isOpen ? 'border-[#1a73e8]/30 shadow-md ring-4 ring-[#1a73e8]/5' : 'border-gray-100 shadow-sm hover:border-gray-300'}`}
                 >
-                  <div className="flex items-center gap-4">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors ${isOpen ? 'bg-[#1a73e8] text-white' : 'bg-[#f0f7ff] text-[#1a73e8]'}`}>
-                      <MessageCircleQuestion className="w-5 h-5" />
-                    </div>
-                    <span className="text-sm md:text-base font-bold text-gray-800 pr-4">
-                      {faq.q}
-                    </span>
-                  </div>
-                  
-                  <div className={`shrink-0 transition-transform duration-300 ${isOpen ? 'text-[#1a73e8]' : 'text-[#1a73e8]'}`}>
-                    {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                  </div>
-                </button>
-                
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pb-6 px-5 md:px-6 md:pl-[4.5rem]">
-                        <p className="text-gray-500 text-sm leading-relaxed">
-                          {faq.a}
-                        </p>
+                  <button 
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="w-full p-5 md:p-6 flex items-start md:items-center justify-between text-left focus:outline-none"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors ${isOpen ? 'bg-[#1a73e8] text-white' : 'bg-[#f0f7ff] text-[#1a73e8]'}`}>
+                        <MessageCircleQuestion className="w-5 h-5" />
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
+                      <span className="text-sm md:text-base font-bold text-gray-800 pr-4">
+                        {faq.q}
+                      </span>
+                    </div>
+                    
+                    <div className={`shrink-0 transition-transform duration-300 ${isOpen ? 'text-[#1a73e8]' : 'text-[#1a73e8]'}`}>
+                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    </div>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-6 px-5 md:px-6 md:pl-[4.5rem]">
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                            {faq.a}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Right Column */}
+          <div className="flex-1 flex flex-col gap-4 md:gap-6">
+            {faqs.filter((_, i) => i % 2 === 1).map((faq, idx) => {
+              const index = idx * 2 + 1;
+              const isOpen = openIndex === index;
+              return (
+                <div 
+                  key={index} 
+                  className={`bg-white rounded-2xl border transition-all duration-300 hover:shadow-md hover:-translate-y-1 ${isOpen ? 'border-[#1a73e8]/30 shadow-md ring-4 ring-[#1a73e8]/5' : 'border-gray-100 shadow-sm hover:border-gray-300'}`}
+                >
+                  <button 
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="w-full p-5 md:p-6 flex items-start md:items-center justify-between text-left focus:outline-none"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors ${isOpen ? 'bg-[#1a73e8] text-white' : 'bg-[#f0f7ff] text-[#1a73e8]'}`}>
+                        <MessageCircleQuestion className="w-5 h-5" />
+                      </div>
+                      <span className="text-sm md:text-base font-bold text-gray-800 pr-4">
+                        {faq.q}
+                      </span>
+                    </div>
+                    
+                    <div className={`shrink-0 transition-transform duration-300 ${isOpen ? 'text-[#1a73e8]' : 'text-[#1a73e8]'}`}>
+                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    </div>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-6 px-5 md:px-6 md:pl-[4.5rem]">
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                            {faq.a}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </div>
       

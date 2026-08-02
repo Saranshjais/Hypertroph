@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 
 import Method from "@/components/Method";
 import Transformations from "@/components/Transformations";
+import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ export default function Home() {
 
       {/* Other Sections */}
       <Method />
+      <Testimonials />
       <FAQ />
 
       <Footer />

@@ -16,8 +16,8 @@ export default function Header() {
   }, []);
 
   const navItems = [
+    { name: "Home", href: "/" },
     { name: "Transformations", href: "/transformations" },
-    { name: "Pricing", href: "/pricing" },
     { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" }
@@ -77,7 +77,7 @@ export default function Header() {
             ))}
             
             <div className="pl-4">
-              <Link href="/apply">
+              <Link href="/pricing">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -125,7 +125,7 @@ export default function Header() {
                   </Link>
                 ))}
                 
-                <Link href="/apply" className="w-full mt-4">
+                <Link href="/pricing" className="w-full mt-4">
                   <button className="w-full px-6 py-4 bg-gradient-to-r from-[#005580] to-[#003d5c] text-white font-bold text-sm uppercase tracking-widest rounded-xl shadow-lg shadow-[#005580]/20 relative overflow-hidden">
                     Enroll Now
                   </button>
