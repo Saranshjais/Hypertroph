@@ -20,6 +20,18 @@ export const AdminThemeContext = createContext<ThemeContextType>({
   toggleTheme: () => {},
 });
 
+interface NavItem {
+  name: string;
+  href: string;
+  icon: any;
+  badge?: string;
+}
+
+interface NavSection {
+  title: string;
+  items: NavItem[];
+}
+
 export default function AdminLayout({
   children,
 }: {
@@ -42,7 +54,7 @@ export default function AdminLayout({
     localStorage.setItem("hypertroph_admin_theme", nextTheme);
   };
 
-  const navigationSections = [
+  const navigationSections: NavSection[] = [
     {
       title: "MAIN OVERVIEW",
       items: [
