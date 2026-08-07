@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Pricing from "@/components/Pricing";
-import ContactCTA from "@/components/ContactCTA";
+
 import Footer from "@/components/Footer";
 
 export const metadata = {
@@ -16,7 +16,7 @@ export default function PricingPage() {
       {/* Wrapper to push the pricing section down past the fixed header */}
       <div className="flex-grow pt-16 md:pt-24 bg-[#f8fbfe]">
         <Pricing />
-        <ContactCTA />
+
       </div>
 
       <Footer />

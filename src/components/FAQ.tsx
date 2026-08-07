@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircleQuestion, Plus, Minus, MessageSquareText } from "lucide-react";
 import Link from "next/link";
-import ContactCTA from "./ContactCTA";
+
 
 export default function FAQ() {
   const faqs = [
@@ -154,10 +154,7 @@ export default function FAQ() {
         </div>
       </div>
       
-      {/* Contact Banner Component */}
-      <div className="-mx-4 md:-mx-8 lg:-mx-12 mt-16 md:mt-20">
-        <ContactCTA />
-      </div>
+
     </section>
   );
 }

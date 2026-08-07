@@ -173,34 +173,7 @@ export default function Footer() {
                   </motion.a>
             </div>
 
-            {/* Madhurima AI Voice Chat Badge (Pushed left to avoid floating buttons) */}
-            <div className="flex items-center gap-3 bg-white px-3 py-2 rounded-[14px] shadow-sm border border-gray-100 order-2 md:order-3 mr-0 md:mr-16 lg:mr-24 hover:shadow-md transition-shadow cursor-pointer">
-              <div className="w-8 h-8 rounded-full bg-gray-200 overflow-hidden shrink-0 border border-gray-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://i.pravatar.cc/150?img=32" alt="Madhurima" className="w-full h-full object-cover" />
-              </div>
-              <div className="flex flex-col pr-2">
-                 <div className="flex items-center justify-between gap-4">
-                   <span className="text-[11px] font-bold text-gray-900 leading-none">Madhurima</span>
-                   <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                 </div>
-                 <div className="flex items-center gap-1.5 mt-1">
-                   <svg width="22" height="6" viewBox="0 0 24 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#1a73e8]">
-                      <rect y="2" width="2" height="4" rx="1" fill="currentColor"/>
-                      <rect x="3" y="1" width="2" height="6" rx="1" fill="currentColor"/>
-                      <rect x="6" width="2" height="8" rx="1" fill="currentColor"/>
-                      <rect x="9" y="1" width="2" height="6" rx="1" fill="currentColor"/>
-                      <rect x="12" y="2" width="2" height="4" rx="1" fill="currentColor"/>
-                      <rect x="15" width="2" height="8" rx="1" fill="currentColor"/>
-                      <rect x="18" y="1" width="2" height="6" rx="1" fill="currentColor"/>
-                      <rect x="21" y="2" width="2" height="4" rx="1" fill="currentColor"/>
-                   </svg>
-                   <span className="text-[9px] text-gray-500 font-medium tracking-wide">
-                     AI voice chat
-                   </span>
-                 </div>
-              </div>
-            </div>
+
 
           </div>
         </div>
